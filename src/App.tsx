@@ -1,8 +1,10 @@
+import { Registration } from './cmps/Registration/Registration.tsx'
+
 function App() {
 
   return (
     <section className='app'>
-      <h1>New Project</h1>
+      <Registration/>
     </section>
   )
 }
