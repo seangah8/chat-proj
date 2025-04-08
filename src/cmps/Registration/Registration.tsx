@@ -1,27 +1,18 @@
 import { LoginSignup } from './LoginSignup.tsx'
 import { userService } from "../../services/user.service.ts"
 
-import { useState, useEffect } from "react"
+type RegistrationProps = {
+  isLoggedInUser: boolean,
+  loadUser: () => Promise<void>
+}
 
-export function Registration() {
-
-  const [isLoggedInUser, setIsLoggedInUser] = useState<boolean>(false)
-
-  useEffect(()=>{
-    loadUser()
-  },[])
-
-  async function loadUser() : Promise<void>{
-    const user = await userService.getLoggedinUser()
-    setIsLoggedInUser(user !== null)
-  }
+export function Registration({isLoggedInUser, loadUser} : RegistrationProps) {
 
   async function onLogout() : Promise<void>{
     await userService.logout()
     console.log("Hey! you just Logged Out!")
-    setIsLoggedInUser(false)
+    loadUser()
   }
-
 
   return (
     <section className='registration'>
