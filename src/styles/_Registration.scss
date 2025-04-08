@@ -1,0 +1,64 @@
+@use './vars';
+
+.registration{
+    background-color: vars.$background-gray-2;
+
+    .login-signup{
+        display: grid;
+        justify-items: center;
+        background-color: vars.$background-gray-3;
+        padding: 10px;
+
+        .login{
+            display: grid;
+            width: 90%;
+
+            @media (min-width: 450px) {
+                width: 70%;
+            }
+
+            @media (min-width: 700px) {
+                width: 50%;
+            }
+        }
+
+        .signup{
+            display: grid;
+            width: 90%;
+
+            @media (min-width: 450px) {
+                width: 70%;
+            }
+
+            @media (min-width: 700px) {
+                width: 50%;
+            }
+        }
+
+        form{
+            display: grid;
+            grid-template-rows: repeat(3, 30px);
+            gap: 10px;
+
+            button{
+                background-color: vars.$gray;
+                border-radius: 5px;
+            }
+
+            input{
+                border-radius: 5px;
+            }
+
+            @media (min-width: 700px) {
+                grid-template-rows: none;
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .swich-button{
+            margin-top: 10px;
+            background-color: rgb(169, 180, 215);
+            border-radius: 5px;
+        }
+    }
+}

@@ -24,15 +24,16 @@ export function CreateMessage({isLoggedInUser, onAddMessage} : CreateMessageProp
 
     return(
         <section className="create-message">
-            <label htmlFor="message">New Message:</label>
             <input 
-                type="text" 
-                id="message" 
-                value={message}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => 
-                    setMessage(event.target.value)}/>
-            <button disabled={!isLoggedInUser} onClick={onSendMessage}>Send</button>
-            {!isLoggedInUser && <p>login to create messages</p>}
+            type="text" 
+            placeholder="New Message" 
+            value={message}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => 
+                setMessage(event.target.value)}/>
+            <button 
+            disabled={!isLoggedInUser} 
+            onClick={onSendMessage}
+            style={{backgroundColor: isLoggedInUser ? '#0073EA' : '#646464'}}>{`>`}</button>
         </section>
     )
 }

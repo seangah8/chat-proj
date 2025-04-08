@@ -1,0 +1,47 @@
+@use './vars';
+
+.chat{
+    .create-message{
+        margin: 10px;
+        position: relative;
+        width: max-content;
+
+        p{
+            margin: 0px;
+        }
+
+        input{
+            height: 30px;
+            width: 90vw;
+            border-radius: 20px;
+
+            @media (min-width: 500px) {
+                width: 500px;
+            }
+        }
+
+        button{
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background-color: vars.$blue;
+            color: white;
+        }
+    }
+
+    .message-list{
+        ul{
+            list-style: none;
+            padding-left: 0px;
+
+            li{
+                display: flex;
+                align-items: center;
+                height: 30px;
+            }
+        }
+    }
+}

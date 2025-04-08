@@ -1,6 +1,10 @@
 @use './App';
 @use './vars';
+@use './Registration';
+@use './Chat';
 
 body{
+    margin: 0px;
+    background-color: vars.$background-gray;
 }
 

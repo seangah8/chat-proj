@@ -26,22 +26,19 @@ export function Login({ onSignupToggel, loadUser } : LoginProps){
 
     return(
         <section className="login">
-            <h1>Login</h1>
 
             <form onSubmit={(event: React.FormEvent<HTMLFormElement>) => onLogin(event)}>
 
-                <label htmlFor="username">Username:</label>
                 <input 
                     type="text" 
-                    id="username" 
+                    placeholder="Username"
                     name="username"
                     value={credentials.username}
                     onChange={handleChange}/>
 
-                <label htmlFor="password">Password:</label>
                 <input 
                     type="password" 
-                    id="password" 
+                    placeholder="Password"
                     name="password"
                     value={credentials.password}
                     onChange={handleChange}/>
@@ -50,7 +47,7 @@ export function Login({ onSignupToggel, loadUser } : LoginProps){
 
             </form>
 
-            <button onClick={onSignupToggel}>haven't signup yet?</button>
+            <button className="swich-button" onClick={onSignupToggel}>haven't signup yet?</button>
 
             
         </section>
