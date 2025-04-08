@@ -3,7 +3,11 @@ import { Signup } from "./Signup.tsx"
 
 import { useState } from "react"
 
-export function LoginSignup(){
+type LoginSignupProps = {
+    loadUser: () => Promise<void>
+}
+
+export function LoginSignup({loadUser} : LoginSignupProps){
 
     const [onSignup, setOnSignup] = useState<boolean>(false)
 
@@ -16,9 +20,11 @@ export function LoginSignup(){
             {
                 onSignup 
                 ? <Signup
-                    onSignupToggel={onSignupToggel}/>
+                    onSignupToggel={onSignupToggel}
+                    loadUser={loadUser}/>
                 : <Login 
-                    onSignupToggel={onSignupToggel}/>
+                    onSignupToggel={onSignupToggel}
+                    loadUser={loadUser}/>
             }
         </section>
     )
