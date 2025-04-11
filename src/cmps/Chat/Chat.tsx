@@ -1,7 +1,7 @@
 import { CreateMessage } from "./CreateMessage.tsx"
 import { MessageList } from "./MessageList.tsx"
 import { MessageModel } from "../../models/message.model.ts"
-import { chatService } from "../../services/chat.service.ts"
+import { chatService } from "../../services/chat"
 
 import { useState, useEffect } from "react"
 
@@ -18,7 +18,7 @@ export function Chat({isLoggedInUser} : ChatProps){
     },[])
 
     async function loadChat(){
-        const chat = await chatService.query()
+        const chat = await chatService.getMsgs()
         setChat(chat)
     }
 
@@ -35,7 +35,7 @@ export function Chat({isLoggedInUser} : ChatProps){
     return(
         <section className="chat">
             <CreateMessage isLoggedInUser={isLoggedInUser} onAddMessage={onAddMessage}/>
-            <button onClick={onClearChat}>Clear Chat</button>
+            <button onClick={onClearChat}>Clear Your Messages</button>
             <MessageList chat={chat}/>
         </section>
     )

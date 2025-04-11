@@ -1,5 +1,5 @@
 import { LoginSignup } from './LoginSignup.tsx'
-import { userService } from "../../services/user.service.ts"
+import { userService } from "../../services/user"
 
 type RegistrationProps = {
   isLoggedInUser: boolean,

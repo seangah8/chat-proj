@@ -1,11 +1,11 @@
 # Logs
 logs
 *.log
-npm-debug.log*
-yarn-debug.log*
+npm-deMsg.log*
+yarn-deMsg.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+pnpm-deMsg.log*
+lerna-deMsg.log*
 
 node_modules
 dist

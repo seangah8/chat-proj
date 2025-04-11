@@ -1,6 +1,6 @@
 import { Registration } from './cmps/Registration/Registration.tsx'
 import { Chat } from './cmps/Chat/Chat.tsx'
-import { userService } from './services/user.service.ts'
+import { userService } from './services/user'
 import { useState, useEffect } from 'react'
 function App() {
 

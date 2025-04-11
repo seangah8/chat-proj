@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { userService } from "../../services/user.service.ts"
-import { chatService } from "../../services/chat.service.ts"
+import { userService } from "../../services/user"
+import { chatService } from "../../services/chat"
 import { MessageModel } from "../../models/message.model.ts"
 
 type CreateMessageProps = {
@@ -16,7 +16,7 @@ export function CreateMessage({isLoggedInUser, onAddMessage} : CreateMessageProp
         if(message === '') throw new Error('cant send empty message')
         const user = await userService.getLoggedinUser()
         if(!user) throw new Error('There Was a Problem...')
-        const newMessage = await chatService.addMessage(user?.username, message)
+        const newMessage = await chatService.add(message)
         onAddMessage(newMessage)
         setMessage('')
         console.log(user?.username + ' sent a message!')

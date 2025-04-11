@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { userService } from "../../services/user.service.ts"
+import { userService } from "../../services/user"
 
 type LoginProps = {
     onSignupToggel: () => void,
@@ -18,8 +18,7 @@ export function Login({ onSignupToggel, loadUser } : LoginProps){
 
     async function onLogin(event: React.FormEvent<HTMLFormElement>): Promise<void>{
         event.preventDefault()
-        const user = await userService.getByUsernameAndPassword(credentials)
-        await userService.login(user)
+        await userService.login(credentials)
         console.log('Hey! you just Logged In!')
         loadUser()
     }

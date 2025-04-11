@@ -1,5 +1,5 @@
-import { storageService } from "./storage.service.ts"
-import { UserModel } from "../models/user.model.ts"
+import { storageService } from "./../storage.service.ts"
+import { UserModel } from "../../models/user.model.ts"
 
 export const userService = {
     query,
@@ -43,8 +43,9 @@ async function signup(credentials: CredentialsModel): Promise<UserModel> {
   return storageService.post(STORAGE_KEY, credentials)
 }
 
-async function login(loginUser: UserModel): Promise<void>{
-  sessionStorage.setItem('LoggedinUser', JSON.stringify({id: loginUser.id, username: loginUser.username}))
+async function login(credentials: CredentialsModel): Promise<void>{
+  const user = await getByUsernameAndPassword(credentials)
+  sessionStorage.setItem('LoggedinUser', JSON.stringify({_id: user._id, username: user.username}))
 }
 
 async function getLoggedinUser(): Promise<Omit<UserModel,'password'> | null>{

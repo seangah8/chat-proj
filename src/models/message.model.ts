@@ -1,11 +1,11 @@
 export interface MessageModel {
-    username: string
+    sentBy: string
     text: string
-    id: string
+    _id: string
 }
 
 export interface MessageWithoutIdModel {
-    username: string
+    sentBy: string
     text: string
 }
   

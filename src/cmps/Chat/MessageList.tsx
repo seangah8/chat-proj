@@ -9,9 +9,9 @@ export function MessageList({chat} : MessageListProps){
         <section className="message-list">
             <ul>
                 {
-                    chat.map((message, index) => <li key={message.id} 
+                    chat.map((message, index) => <li key={message._id} 
                     style={{backgroundColor: (index % 2 === 0) ? '#CCCCCC' : '#9E9E9E'}}>
-                        <p>{`${message.username}: ${message.text}`}</p>
+                        <p>{`${message.sentBy}: ${message.text}`}</p>
                     </li>)
                 }
             </ul>
