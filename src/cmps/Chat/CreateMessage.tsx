@@ -2,6 +2,7 @@ import { useState } from "react"
 import { userService } from "../../services/user"
 import { chatService } from "../../services/chat"
 import { MessageModel } from "../../models/message.model.ts"
+import { socketService, SOCKET_EMIT_SEND_MSG } from "../../services/socket.service.ts"
 
 type CreateMessageProps = {
     isLoggedInUser: boolean,
@@ -19,6 +20,7 @@ export function CreateMessage({isLoggedInUser, onAddMessage} : CreateMessageProp
         const newMessage = await chatService.add(message)
         onAddMessage(newMessage)
         setMessage('')
+        socketService.emit(SOCKET_EMIT_SEND_MSG, newMessage)
         console.log(user?.username + ' sent a message!')
     }
 
